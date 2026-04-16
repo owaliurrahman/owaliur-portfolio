@@ -2,67 +2,219 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Owaliur Rahman | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --accent: #38bdf8;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: #020617;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    header {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+    }
+
+    header p {
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: var(--accent);
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      border-left: 4px solid var(--accent);
+      padding-left: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    .skills span {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      background: var(--card);
+      border-radius: 6px;
+      font-size: 0.85rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: var(--muted);
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>👋 Hey, I’m Owaliur Rahman</h1>
-    <p>Computer Science Student | Python Developer | Future Software Engineer</p>
-  </header>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hi, I’m Owaliur Rahman! I’m currently pursuing my Computer Science Engineering degree and working towards becoming a Software Engineer. I'm passionate about full-stack development, coding challenges, and building projects that make a difference.</p>
-  </section>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="education">
-    <h2>Education</h2>
-    <p><strong>Current Degree:</strong> B.Tech in Computer Science Engineering</p>
-    <p><strong>Institution:</strong> [Your College Name]</p>
-    <p><strong>Year:</strong> 4th Semester</p>
-  </section>
+<header class="fade">
+  <h1>Owaliur Rahman</h1>
+  <img src="profile.jpg" alt="Owaliur Rahman" class="profile-img">
+  <p>Software Developer | Python | Java | Full-Stack</p>
+  <a href="#projects" class="btn">View Projects</a>
+</header>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python</li>
-      <li>Java</li>
-      <li>HTML/CSS</li>
-      <li>JavaScript</li>
-      <li>Node.js</li>
-      <li>Django</li>
-      <li>SQL (MySQL, PostgreSQL)</li>
-      <li>Git & GitHub</li>
-    </ul>
-  </section>
+<section id="about" class="fade">
+  <h2>About Me</h2>
+  <p>
+    I am a Computer Science Engineering student focused on becoming a professional software engineer.
+    I build real-world projects and continuously improve my skills in Python, Java, and full-stack development.
+  </p>
+</section>
 
-  <section class="projects">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>🔐 Premium Password Generator</h3>
-      <p>A Python tool that generates strong, random passwords based on custom user settings.</p>
+<section id="projects" class="fade">
+  <h2>Projects</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Library Management System</h3>
+      <p>Manage book records, issue and return system.</p>
     </div>
-    <div class="project">
-      <h3>🍽️ Restaurant Menu App</h3>
-      <p>A command-line Python program to manage and update a restaurant’s menu items.</p>
-    </div>
-    <div class="project">
-      <h3>💼 Full-Stack Portfolio</h3>
-      <p>Created this portfolio website using HTML, CSS, and GitHub Pages.</p>
-    </div>
-  </section>
 
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:owaliur.email@example.com">owaliur.email@example.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/owaliurrahman" target="_blank">My LinkedIn</a></p>
-    <p>GitHub: <a href="https://github.com/owaliurrahman" target="_blank">My GitHub</a></p>
-  </section>
+    <div class="card">
+      <h3>Hotel Billing System</h3>
+      <p>Billing system for real-world use cases.</p>
+    </div>
 
-  <footer>
-    <p>© 2025 Owaliur Rahman. All rights reserved.</p>
-  </footer>
+    <div class="card">
+      <h3>Tic Tac Toe (Java)</h3>
+      <p>Interactive Java-based game.</p>
+    </div>
+
+    <div class="card">
+      <h3>Password Generator</h3>
+      <p>Secure password generator tool.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="fade skills">
+  <h2>Skills</h2>
+  <span>Python</span>
+  <span>Java</span>
+  <span>C</span>
+  <span>HTML</span>
+  <span>CSS</span>
+  <span>JavaScript</span>
+  <span>WordPress</span>
+</section>
+
+<section id="contact" class="fade">
+  <h2>Contact</h2>
+  <p>Email: owaliurrahman@gmail.com</p>
+  <p>GitHub: <a href="#">https://owaliurrahamn.github.io</a></p>
+</section>
+
+<footer>
+  <p>© 2026 Owaliur Rahman</p>
+</footer>
+
+<script>
+  const faders = document.querySelectorAll('.fade');
+
+  const appearOptions = {
+    threshold: 0.2
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
 </body>
 </html>
