@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Owaliur Rahman | Portfolio</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -37,13 +37,11 @@
       display: flex;
       justify-content: center;
       gap: 30px;
-      z-index: 1000;
     }
 
     nav a {
       color: var(--text);
       text-decoration: none;
-      font-size: 0.9rem;
       position: relative;
     }
 
@@ -72,6 +70,20 @@
       text-align: center;
     }
 
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #38bdf8;
+      box-shadow: 0 0 25px rgba(56,189,248,0.4);
+      transition: 0.3s;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.05);
+    }
+
     .hero-text h1 {
       font-size: 3rem;
     }
@@ -97,15 +109,6 @@
       background: white;
     }
 
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--accent);
-      box-shadow: 0 0 25px rgba(56,189,248,0.4);
-    }
-
     section {
       max-width: 1100px;
       margin: auto;
@@ -129,24 +132,6 @@
       padding: 25px;
       border-radius: 15px;
       transition: 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: linear-gradient(120deg, transparent, rgba(56,189,248,0.2), transparent);
-      opacity: 0;
-      transition: 0.5s;
-    }
-
-    .card:hover::before {
-      opacity: 1;
     }
 
     .card:hover {
@@ -175,6 +160,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <nav>
@@ -185,7 +171,7 @@
 </nav>
 
 <header>
-  <img src="profile.jpeg" class="profile-img" />
+  <img src="profile.jpeg" alt="Owaliur Rahman" class="profile-img">
 
   <div class="hero-text">
     <h1>Owaliur Rahman</h1>
@@ -200,7 +186,7 @@
   <h2>About Me</h2>
   <p>
     I am a Computer Science Engineering student passionate about building real-world applications.
-    I specialize in Python, Java, and full-stack development while also exploring freelancing in web development.
+    I specialize in Python, Java, and full-stack development while also exploring freelancing.
   </p>
 </section>
 
@@ -210,17 +196,17 @@
 
     <div class="card">
       <h3>Library Management System</h3>
-      <p>Manage books, issue/return system with structured logic.</p>
+      <p>System to manage books, issue/return operations efficiently.</p>
     </div>
 
     <div class="card">
       <h3>Hotel Billing System</h3>
-      <p>Real-world billing solution with calculations.</p>
+      <p>Billing system designed for real-world calculation scenarios.</p>
     </div>
 
     <div class="card">
-      <h3>Tic Tac Toe</h3>
-      <p>Java-based interactive game with logic implementation.</p>
+      <h3>Tic Tac Toe (Java)</h3>
+      <p>Interactive game built using Java logic.</p>
     </div>
 
     <div class="card">
@@ -245,7 +231,12 @@
 <section id="contact">
   <h2>Contact</h2>
   <p>Email: owaliurrahman@gmail.com</p>
-  <p>GitHub: <a href="https://github.com/owaliurrahamn" target="_blank">github.com/owaliurrahamn</a></p>
+  <p>
+    GitHub:
+    <a href="https://github.com/owaliurrahamn" target="_blank">
+      github.com/owaliurrahamn
+    </a>
+  </p>
 </section>
 
 <footer>
