@@ -4,33 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Owaliur Rahman | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #1e293b;
+      --bg: #020617;
+      --card: #0f172a;
       --accent: #38bdf8;
       --text: #e2e8f0;
       --muted: #94a3b8;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'Poppins', sans-serif;
       background: var(--bg);
       color: var(--text);
-      scroll-behavior: smooth;
     }
 
     nav {
       position: sticky;
       top: 0;
-      background: #020617;
+      background: rgba(2,6,23,0.9);
+      backdrop-filter: blur(10px);
       padding: 15px;
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
       z-index: 1000;
     }
 
@@ -38,89 +44,134 @@
       color: var(--text);
       text-decoration: none;
       font-size: 0.9rem;
+      position: relative;
     }
 
-    nav a:hover { color: var(--accent); }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      left: 0;
+      bottom: -4px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
 
     header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 100px 20px;
       text-align: center;
-      padding: 80px 20px;
     }
 
-    header h1 {
+    .hero-text h1 {
       font-size: 3rem;
     }
 
-    header p {
-      color: var(--muted);
+    .hero-text p {
       margin-top: 10px;
+      color: var(--muted);
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
+      margin: 15px 10px 0 0;
       padding: 10px 20px;
       background: var(--accent);
       color: black;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: white;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 25px rgba(56,189,248,0.4);
     }
 
     section {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 80px 20px;
     }
 
     h2 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       border-left: 4px solid var(--accent);
       padding-left: 10px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
     }
 
     .card {
       background: var(--card);
-      padding: 20px;
+      padding: 25px;
       border-radius: 15px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(120deg, transparent, rgba(56,189,248,0.2), transparent);
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transform: translateY(-8px);
     }
 
     .skills span {
       display: inline-block;
-      margin: 5px;
-      padding: 8px 12px;
+      margin: 6px;
+      padding: 10px 14px;
       background: var(--card);
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 0.85rem;
+      transition: 0.3s;
+    }
+
+    .skills span:hover {
+      background: var(--accent);
+      color: black;
     }
 
     footer {
       text-align: center;
       padding: 30px;
       color: var(--muted);
-    }
-
-    .fade {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease;
-    }
-
-    .fade.show {
-      opacity: 1;
-      transform: translateY(0);
     }
   </style>
 </head>
@@ -133,49 +184,54 @@
   <a href="#contact">Contact</a>
 </nav>
 
-<header class="fade">
-  <h1>Owaliur Rahman</h1>
-  <img src="profile.jpg" alt="Owaliur Rahman" class="profile-img">
-  <p>Software Developer | Python | Java | Full-Stack</p>
-  <a href="#projects" class="btn">View Projects</a>
+<header>
+  <img src="profile.jpeg" class="profile-img" />
+
+  <div class="hero-text">
+    <h1>Owaliur Rahman</h1>
+    <p>Software Developer | Python | Java | Full-Stack</p>
+
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="https://github.com/owaliurrahamn" target="_blank" class="btn">GitHub</a>
+  </div>
 </header>
 
-<section id="about" class="fade">
+<section id="about">
   <h2>About Me</h2>
   <p>
-    I am a Computer Science Engineering student focused on becoming a professional software engineer.
-    I build real-world projects and continuously improve my skills in Python, Java, and full-stack development.
+    I am a Computer Science Engineering student passionate about building real-world applications.
+    I specialize in Python, Java, and full-stack development while also exploring freelancing in web development.
   </p>
 </section>
 
-<section id="projects" class="fade">
+<section id="projects">
   <h2>Projects</h2>
   <div class="grid">
 
     <div class="card">
       <h3>Library Management System</h3>
-      <p>Manage book records, issue and return system.</p>
+      <p>Manage books, issue/return system with structured logic.</p>
     </div>
 
     <div class="card">
       <h3>Hotel Billing System</h3>
-      <p>Billing system for real-world use cases.</p>
+      <p>Real-world billing solution with calculations.</p>
     </div>
 
     <div class="card">
-      <h3>Tic Tac Toe (Java)</h3>
-      <p>Interactive Java-based game.</p>
+      <h3>Tic Tac Toe</h3>
+      <p>Java-based interactive game with logic implementation.</p>
     </div>
 
     <div class="card">
       <h3>Password Generator</h3>
-      <p>Secure password generator tool.</p>
+      <p>Secure tool for generating strong passwords.</p>
     </div>
 
   </div>
 </section>
 
-<section id="skills" class="fade skills">
+<section id="skills" class="skills">
   <h2>Skills</h2>
   <span>Python</span>
   <span>Java</span>
@@ -186,35 +242,15 @@
   <span>WordPress</span>
 </section>
 
-<section id="contact" class="fade">
+<section id="contact">
   <h2>Contact</h2>
   <p>Email: owaliurrahman@gmail.com</p>
-  <p>GitHub: <a href="#">https://owaliurrahamn.github.io</a></p>
+  <p>GitHub: <a href="https://github.com/owaliurrahamn" target="_blank">github.com/owaliurrahamn</a></p>
 </section>
 
 <footer>
   <p>© 2026 Owaliur Rahman</p>
 </footer>
-
-<script>
-  const faders = document.querySelectorAll('.fade');
-
-  const appearOptions = {
-    threshold: 0.2
-  };
-
-  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('show');
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
-
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-</script>
 
 </body>
 </html>
